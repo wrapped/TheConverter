@@ -26,12 +26,12 @@
             android:layout_height="wrap_content"
             android:layout_column="2"
             android:layout_gravity="start"
+            android:autofillHints="@string/celsius"
             android:digits="0123456789-."
             android:inputType="text"
             android:minWidth="100dp"
             android:textAlignment="center"
-            android:textSize="20sp"
-            android:importantForAutofill="no" />
+            android:textSize="20sp" />
     </TableRow>
 
     <TableRow>
@@ -53,11 +53,11 @@
             android:layout_height="wrap_content"
             android:layout_column="2"
             android:layout_gravity="start"
+            android:autofillHints="@string/fahrenheit"
             android:digits="0123456789-."
             android:inputType="text"
             android:minWidth="100dp"
             android:textAlignment="center"
-            android:textSize="20sp"
-            android:importantForAutofill="no" />
+            android:textSize="20sp" />
     </TableRow>
 </TableLayout>
