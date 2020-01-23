@@ -1,9 +1,15 @@
 package com.wrappedinplastic.theconverter
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -12,66 +18,59 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var finalTemp : Float
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.getDefaultNightMode())
 
-        etCelsius.addTextChangedListener(object : TextWatcher {
+        val adapter = MyViewPagerAdapter(supportFragmentManager)
+        adapter.addFragment(TempFragment() , "Temperature")
+        adapter.addFragment(VolumeFragment() , "Volume")
+        viewPager.adapter = adapter
+        tabs.setupWithViewPager(viewPager)
 
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int,
-                                       count: Int) {
-                if (s.isNotEmpty() && etCelsius.isFocused && etCelsius.text.toString().trim().matches("-?\\d+(\\.\\d+)?".toRegex())) {
-                    val celsiusTemp = etCelsius.text.toString().toFloat()
+    }
 
-                    finalTemp = (celsiusTemp * 9/5) + 32
-                    finalTemp = String.format("%.2f", finalTemp).toFloat()
-                    etFahrenheit.setText(finalTemp.toString())
+    class MyViewPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT){
 
-                } else if(etFahrenheit.text.isNotEmpty() && etCelsius.text.isEmpty()){
+        private val fragmentList : MutableList<Fragment> = ArrayList()
+        private val titleList : MutableList<String> = ArrayList()
 
-                    etFahrenheit.setText("")
+        override fun getItem(position: Int): Fragment {
+            return fragmentList[position]
 
-                }
+        }
 
-            }
+        override fun getCount(): Int {
+            return fragmentList.size
 
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int,
-                                           after: Int) {
+        }
 
-            }
+        fun addFragment(fragment: Fragment,title:String){
+            fragmentList.add(fragment)
+            titleList.add(title)
+        }
 
-            override fun afterTextChanged(s: Editable) {
+        override fun getPageTitle(position: Int): CharSequence? {
+            return titleList[position]
+        }
 
-            }
-        })
+    }
 
-        etFahrenheit.addTextChangedListener(object : TextWatcher {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu,menu)
+        return true
+    }
 
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int,
-                                       count: Int) {
-                if (s.isNotEmpty() && etFahrenheit.isFocused && etFahrenheit.text.toString().trim().matches("-?\\d+(\\.\\d+)?".toRegex())) {
-                    val fahrenheitTemp = etFahrenheit.text.toString().toFloat()
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        val id = item?.itemId
 
-                    finalTemp = (fahrenheitTemp - 32) * 5/9
+        if (id == R.id.menuAbout){
+            Toast.makeText(this, "About was clicked", Toast.LENGTH_SHORT).show()
+            return true
+        }
 
-                    finalTemp = String.format("%.2f", finalTemp).toFloat()
-
-                    etCelsius.setText(finalTemp.toString())
-                } else if(etFahrenheit.text.isEmpty() && etCelsius.text.isNotEmpty()){
-
-                    etCelsius.setText("")
-
-                }
-
-            }
-
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int,
-                                           after: Int) {
-
-            }
-
-            override fun afterTextChanged(s: Editable) {
-
-            }
-        })
-
+        if (id == R.id.menuSettings){
+            startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
