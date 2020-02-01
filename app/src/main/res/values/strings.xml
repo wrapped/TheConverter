@@ -6,4 +6,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_settings">Settings</string>
 
+    <!-- Preference -->
+    <string name="theme_header">Theme</string>
+    <string name="theme_title">Enable dark theme</string>
+
 </resources>
