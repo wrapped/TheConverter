@@ -1,8 +1,10 @@
 package com.wrappedinplastic.theconverter
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -18,7 +20,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.getDefaultNightMode())
+        val pref : SharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+
+        val on = pref.getBoolean("theme_switch", false)
+        if (on) { Toast.makeText(this, "Night selected", Toast.LENGTH_SHORT).show()
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            Toast.makeText(this, "Day mode selected", Toast.LENGTH_SHORT) .show()
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
 
         val adapter = MyViewPagerAdapter(supportFragmentManager)
         adapter.addFragment(TempFragment() , "Temperature")
