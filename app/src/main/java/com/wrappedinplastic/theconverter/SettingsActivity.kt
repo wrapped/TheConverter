@@ -38,11 +38,8 @@ class SettingsActivity : AppCompatActivity() {
             if (key == "theme_switch") {
                 val on = sharedPreferences.getBoolean("theme_switch", false)
                 if (on) {
-                    Toast.makeText(activity, "Night selected", Toast.LENGTH_SHORT).show()
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 } else {
-                    Toast.makeText(activity, "Day mode selected", Toast.LENGTH_SHORT)
-                        .show()
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 }
             }

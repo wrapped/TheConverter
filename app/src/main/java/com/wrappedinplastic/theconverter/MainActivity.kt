@@ -23,10 +23,10 @@ class MainActivity : AppCompatActivity() {
         val pref : SharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
 
         val on = pref.getBoolean("theme_switch", false)
-        if (on) { Toast.makeText(this, "Night selected", Toast.LENGTH_SHORT).show()
+
+        if (on) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
-            Toast.makeText(this, "Day mode selected", Toast.LENGTH_SHORT) .show()
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
 
