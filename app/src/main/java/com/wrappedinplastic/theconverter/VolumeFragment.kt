@@ -1,6 +1,5 @@
 package com.wrappedinplastic.theconverter
 
-
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -36,8 +35,6 @@ class VolumeFragment : Fragment() {
                     finalVolume = String.format("%.4f", finalVolume).toDouble()
                     etVolumeB.setText(finalVolume.toString())
 
-
-
                 } else if(etVolumeB.text.isNotEmpty() && etVolumeA.text.isEmpty()){
 
                     etVolumeB.setText("")
@@ -47,7 +44,6 @@ class VolumeFragment : Fragment() {
 
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             }
-
 
             override fun afterTextChanged(s: Editable) {
             }
@@ -65,8 +61,6 @@ class VolumeFragment : Fragment() {
                     finalVolume = String.format("%.2f", finalVolume).toDouble()
                     etVolumeA.setText(finalVolume.toString())
 
-
-
                 } else if(etVolumeA.text.isNotEmpty() && etVolumeB.text.isEmpty()){
 
                     etVolumeA.setText("")
@@ -76,7 +70,6 @@ class VolumeFragment : Fragment() {
 
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             }
-
 
             override fun afterTextChanged(s: Editable) {
             }
@@ -167,5 +160,4 @@ class VolumeFragment : Fragment() {
 
         return convertedValue
     }
-
 }
