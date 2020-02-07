@@ -121,13 +121,13 @@ class VolumeFragment : Fragment() {
             "Centiliter" -> outputVolume = (fromIn * 10)
             "Deciliter" -> outputVolume = (fromIn * 100)
             "Liter" -> outputVolume = (fromIn * 1000)
-            "US Teaspoon" -> outputVolume = (fromIn * 4.929)
+            "US Teaspoon" -> outputVolume = (fromIn * 4.92892)
             "US Tablespoon" -> outputVolume = (fromIn * 14.787)
             "US Fluid Ounce" -> outputVolume = (fromIn * 29.574)
-            "US Cup" -> outputVolume = (fromIn * 240)
-            "US Pint" -> outputVolume = (fromIn * 473)
-            "US Quart" -> outputVolume = (fromIn * 946)
-            "US Gallon" -> outputVolume = (fromIn * 3785)
+            "US Cup" -> outputVolume = (fromIn * 236.588)
+            "US Pint" -> outputVolume = (fromIn * 473.176)
+            "US Quart" -> outputVolume = (fromIn * 946.353)
+            "US Gallon" -> outputVolume = (fromIn * 3785.41)
         }
 
         return outputVolume
@@ -149,13 +149,13 @@ class VolumeFragment : Fragment() {
             "Centiliter" -> convertedValue = (toOut / 10)
             "Deciliter" -> convertedValue = (toOut / 100)
             "Liter" -> convertedValue = (toOut / 1000)
-            "US Teaspoon" -> convertedValue = (toOut / 4.929)
+            "US Teaspoon" -> convertedValue = (toOut / 4.92892)
             "US Tablespoon" -> convertedValue = (toOut / 14.787)
             "US Fluid Ounce" -> convertedValue = (toOut / 29.574)
-            "US Cup" -> convertedValue = (toOut / 240)
-            "US Pint" -> convertedValue = (toOut /473)
-            "US Quart" -> convertedValue = (toOut / 946)
-            "US Gallon" -> convertedValue = (toOut / 3785)
+            "US Cup" -> convertedValue = (toOut / 236.588)
+            "US Pint" -> convertedValue = (toOut / 473.176)
+            "US Quart" -> convertedValue = (toOut / 946.353)
+            "US Gallon" -> convertedValue = (toOut / 3785.41)
         }
 
         return convertedValue
