@@ -10,4 +10,19 @@
     <string name="theme_header">Theme</string>
     <string name="theme_title">Enable dark theme</string>
 
+    <!-- Volume String Array -->
+    <string-array name="volume_array">
+        <item>Milliliter</item>
+        <item>Centiliter</item>
+        <item>Deciliter</item>
+        <item>Liter</item>
+        <item>US Teaspoon</item>
+        <item>US Tablespoon</item>
+        <item>US Fluid Ounce</item>
+        <item>US Cup</item>
+        <item>US Quart</item>
+        <item>US Pint</item>
+        <item>US Gallon</item>
+    </string-array>
+
 </resources>
