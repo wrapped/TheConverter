@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_temp.*
+import java.text.DecimalFormat
 
 class TempFragment : Fragment() {
 
@@ -21,6 +22,7 @@ class TempFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         var finalTemp : Float
+        val formatTemp = DecimalFormat("#.##")
 
         etCelsius.addTextChangedListener(object : TextWatcher {
 
@@ -30,10 +32,9 @@ class TempFragment : Fragment() {
                     val celsiusTemp = etCelsius.text.toString().toFloat()
 
                     finalTemp = (celsiusTemp * 9/5) + 32
-                    finalTemp = String.format("%.2f", finalTemp).toFloat()
-                    etFahrenheit.setText(finalTemp.toString())
+                    etFahrenheit.setText(formatTemp.format(finalTemp))
 
-                } else if(etFahrenheit.text.isNotEmpty() && etCelsius.text.isEmpty()){
+                } else if(etFahrenheit.text.toString() != "" && etCelsius.text.toString() == ""){
 
                     etFahrenheit.setText("")
 
@@ -60,10 +61,9 @@ class TempFragment : Fragment() {
 
                     finalTemp = (fahrenheitTemp - 32) * 5/9
 
-                    finalTemp = String.format("%.2f", finalTemp).toFloat()
+                    etCelsius.setText(formatTemp.format(finalTemp))
 
-                    etCelsius.setText(finalTemp.toString())
-                } else if(etFahrenheit.text.isEmpty() && etCelsius.text.isNotEmpty()){
+                } else if(etFahrenheit.text.toString() == "" && etCelsius.text.toString() != ""){
 
                     etCelsius.setText("")
 

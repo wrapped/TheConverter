@@ -1,68 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".TempFragment">
 
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center"
-        android:layout_marginTop="50dp">
-        <TableRow>
-
-            <TextView
-                android:id="@+id/txtCelsius"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:layout_gravity="end"
-                android:gravity="center"
-                android:labelFor="@id/etCelsius"
-                android:text="@string/celsius"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/etCelsius"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_gravity="start"
-                android:digits="0123456789-."
-                android:inputType="text"
-                android:minWidth="100dp"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:importantForAutofill="no" />
-        </TableRow>
+                android:layout_marginTop="@dimen/input_top"
+                android:layout_gravity="center"
+                android:hint="@string/celsius">
 
-        <TableRow>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCelsius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="@dimen/input_minWidth"
+                    android:digits="0123456789-."
+                    android:textSize="@dimen/input_textSize"
+                    android:textAlignment="center"/>
 
-            <TextView
-                android:id="@+id/txtFahrenheit"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:layout_gravity="end"
-                android:gravity="center"
-                android:labelFor="@id/etFahrenheit"
-                android:text="@string/fahrenheit"
-                android:textSize="20sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/etFahrenheit"
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_gravity="start"
-                android:digits="0123456789-."
-                android:inputType="text"
-                android:minWidth="100dp"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:importantForAutofill="no" />
-        </TableRow>
-    </TableLayout>
+                android:layout_marginTop="@dimen/input_2nd"
+                android:layout_gravity="center"
+                android:hint="@string/fahrenheit">
 
-</FrameLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFahrenheit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="@dimen/input_minWidth"
+                    android:digits="0123456789-."
+                    android:textSize="@dimen/input_textSize"
+                    android:textAlignment="center"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>

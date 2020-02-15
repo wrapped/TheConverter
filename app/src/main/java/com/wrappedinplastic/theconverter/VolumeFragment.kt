@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import kotlinx.android.synthetic.main.fragment_volume.*
+import java.text.DecimalFormat
 
 class VolumeFragment : Fragment() {
 
@@ -22,6 +23,7 @@ class VolumeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         var finalVolume : Double
+        val formatVolume = DecimalFormat("#.##")
 
         etVolumeA.addTextChangedListener(object : TextWatcher {
 
@@ -32,10 +34,9 @@ class VolumeFragment : Fragment() {
                     val convertedValue = convertFrom(volumeAInput)
 
                     finalVolume = convertTo(convertedValue)
-                    finalVolume = String.format("%.4f", finalVolume).toDouble()
-                    etVolumeB.setText(finalVolume.toString())
+                    etVolumeB.setText(formatVolume.format(finalVolume))
 
-                } else if(etVolumeB.text.isNotEmpty() && etVolumeA.text.isEmpty()){
+                } else if(etVolumeB.text.toString() !="" && etVolumeA.text.toString() == ""){
 
                     etVolumeB.setText("")
 
@@ -58,10 +59,9 @@ class VolumeFragment : Fragment() {
                     val convertedValue = convertFrom(volumeBInput)
 
                     finalVolume = convertTo(convertedValue)
-                    finalVolume = String.format("%.2f", finalVolume).toDouble()
-                    etVolumeA.setText(finalVolume.toString())
+                    etVolumeA.setText(formatVolume.format(finalVolume))
 
-                } else if(etVolumeA.text.isNotEmpty() && etVolumeB.text.isEmpty()){
+                } else if(etVolumeA.text.toString() !="" && etVolumeB.text.toString() == ""){
 
                     etVolumeA.setText("")
 
@@ -83,6 +83,7 @@ class VolumeFragment : Fragment() {
                 id: Long
             ) {
                 etVolumeA.setText("")
+                tilVolumeA.hint = spVolumeA.selectedItem.toString()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -98,6 +99,7 @@ class VolumeFragment : Fragment() {
                 id: Long
             ) {
                 etVolumeB.setText("")
+                tilVolumeB.hint = spVolumeB.selectedItem.toString()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {

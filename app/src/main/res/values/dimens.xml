@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="input_top">60dp</dimen>
+    <dimen name="input_2nd">20dp</dimen>
+    <dimen name="input_minWidth">220dp</dimen>
+    <dimen name="input_textSize">30sp</dimen>
+    
+</resources>

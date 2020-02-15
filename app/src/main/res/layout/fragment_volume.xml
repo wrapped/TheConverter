@@ -1,68 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".TempFragment">
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|center"
-        android:layout_marginTop="50dp">
-        <TableRow>
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/input_top"
+        android:orientation="horizontal">
 
-            <Spinner
-                android:id="@+id/spVolumeA"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:entries="@array/volume_array"
-                android:textAlignment="textEnd"
-                android:labelFor="@id/etVolumeA"
-                android:layout_weight="1"
-                />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilVolumeA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:hintEnabled="true"
+            android:layout_gravity="center">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etVolumeA"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_gravity="start|top"
+                android:layout_height="match_parent"
+                android:minWidth="@dimen/input_minWidth"
                 android:digits="0123456789-."
-                android:inputType="text"
-                android:minWidth="100dp"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:importantForAutofill="no" />
-        </TableRow>
+                android:textSize="@dimen/input_textSize"
+                android:textAlignment="center"/>
 
-        <TableRow>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <Spinner
-                android:id="@+id/spVolumeB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:labelFor="@id/etVolumeB"
-                android:entries="@array/volume_array"
-                android:textAlignment="textEnd"
-                android:layout_weight="1"
-                />
+        <Spinner
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:id="@+id/spVolumeA"
+            android:padding="10dp"
+            android:entries="@array/volume_array"
+            android:spinnerMode="dropdown"
+            />
+    </LinearLayout>
 
-            <EditText
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/input_2nd"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilVolumeB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:hintEnabled="true"
+            android:layout_gravity="center">
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etVolumeB"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_gravity="start|top"
+                android:layout_height="match_parent"
+                android:minWidth="@dimen/input_minWidth"
                 android:digits="0123456789-."
-                android:inputType="text"
-                android:minWidth="100dp"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:importantForAutofill="no" />
-        </TableRow>
-    </TableLayout>
+                android:textSize="@dimen/input_textSize"
+                android:textAlignment="center"/>
 
-</FrameLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Spinner
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:id="@+id/spVolumeB"
+            android:padding="10dp"
+            android:entries="@array/volume_array"
+            android:spinnerMode="dropdown"
+            />
+    </LinearLayout>
+
+</LinearLayout>
