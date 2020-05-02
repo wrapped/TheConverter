@@ -23,18 +23,23 @@ class VolumeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         var finalVolume : Double
-        val formatVolume = DecimalFormat("#.##")
+        val formatOutput = DecimalFormat("#.##")
 
         etVolumeA.addTextChangedListener(object : TextWatcher {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if (s.isNotEmpty() && etVolumeA.isFocused && etVolumeA.text.toString().trim().matches("-?\\d+(\\.\\d+)?".toRegex())) {
+
                     val volumeAInput = etVolumeA.text.toString().toDouble()
-
                     val convertedValue = convertFrom(volumeAInput)
-
                     finalVolume = convertTo(convertedValue)
-                    etVolumeB.setText(formatVolume.format(finalVolume))
+
+                    if (finalVolume >= 0.01){
+                        etVolumeB.setText(formatOutput.format(finalVolume))
+                    }
+                    else {
+                        etVolumeB.setText(finalVolume.toString())
+                    }
 
                 } else if(etVolumeB.text.toString() !="" && etVolumeA.text.toString() == ""){
 
@@ -59,7 +64,12 @@ class VolumeFragment : Fragment() {
                     val convertedValue = convertFrom(volumeBInput)
 
                     finalVolume = convertTo(convertedValue)
-                    etVolumeA.setText(formatVolume.format(finalVolume))
+                    if (finalVolume > 0.01){
+                        etVolumeA.setText(formatOutput.format(finalVolume))
+                    }
+                    else {
+                        etVolumeA.setText(finalVolume.toString())
+                    }
 
                 } else if(etVolumeA.text.toString() !="" && etVolumeB.text.toString() == ""){
 

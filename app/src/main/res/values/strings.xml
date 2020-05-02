@@ -25,4 +25,28 @@
         <item>US Gallon</item>
     </string-array>
 
+    <!-- Length String Array -->
+    <string-array name="length_array">
+        <item>Millimeter</item>
+        <item>Centimeter</item>
+        <item>Decimeter</item>
+        <item>Meter</item>
+        <item>Kilometer</item>
+        <item>Inch</item>
+        <item>Foot</item>
+        <item>Yard</item>
+        <item>Mile</item>
+    </string-array>
+
+    <!-- Weight String Array -->
+    <string-array name="weight_array">
+        <item>Milligram</item>
+        <item>Gram</item>
+        <item>Kilogram</item>
+        <item>Metric Ton</item>
+        <item>Ounce</item>
+        <item>Pound</item>
+        <item>US Ton</item>
+    </string-array>
+
 </resources>
