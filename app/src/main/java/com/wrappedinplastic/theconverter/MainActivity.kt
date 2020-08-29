@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val adapter = MyViewPagerAdapter(supportFragmentManager)
-        adapter.addFragment(TempFragment() , "Temperature")
+        adapter.addFragment(TempFragment() , "Temp")
         adapter.addFragment(VolumeFragment() , "Volume")
         adapter.addFragment(LengthFragment() , "Length")
         adapter.addFragment(WeightFragment() , "Weight")
