@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -71,11 +70,11 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val id = item?.itemId
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
 
         if (id == R.id.menuAbout){
-            Toast.makeText(this, "About was clicked", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this@MainActivity, AboutActivity::class.java))
             return true
         }
 
